@@ -1,0 +1,15 @@
+<div class="media payment-methods">
+    <div class="media-left">
+        <i class="media-object icon">
+            <img src="/assets/payments/<%= data.card_type.type %>.svg">
+        </i>
+    </div>
+    <div class="media-body media-middle">
+        <h4 class="media-heading">
+            <%= data.card_type.type %>
+            ending in 
+            <%= data.card_type.ending %>
+        </h4>
+        <span>Expiry: <%= data.expiration_month %>/ <%= data.expiration_year %></span>
+    </div>
+</div>

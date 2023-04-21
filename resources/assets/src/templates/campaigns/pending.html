@@ -1,0 +1,78 @@
+<!-- prettier-ignore -->
+
+<div class="container margin-top">
+
+    <!-- Modal -->
+    <div class="modal fade" id="ask-question" tabindex="-1" role="dialog" aria-labelledby="ask-question-title" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="ask-question-title">How can we help you?</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>
+                        Nulla consequat placerat turpis orci integer diam feugiat. Et ultricies dui
+                        id quis risus. Vulputate purus in duis quam velit eleifend.
+                    </p>
+                    <form>
+                        <div class="form-group clearfix">
+                            <select name="topic" class="form-control wide">
+                                <option>Please select a topic</option>
+                                <option>Sales</option>
+                                <option>Billing</option>
+                                <option>Technical issue</option>
+                                <option>Public relations and media</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea
+                                placeholder="Message*"
+                                name="message"
+                                class="form-control"
+                                rows="6"
+                            ></textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="action-link action-link-default" data-toggle="modal" data-target="#ask-question">
+                        Submit
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column-md-12 widget">
+            <div class="widget-inner widget-large">
+                <div class="clearfix padding-bottom">
+                    <h2>Campaign "<%= model.get("campaign_name") %>" is under construction!</h2>
+                    <p class="padding-bottom">
+                        <%= model.get("campaign_name") %> is in a pending status. We are currently seting up things and<br>
+                        your statistics will be availiable as soon as the campaign is ready.
+                    </p>
+                    <img src="/assets/infobox/oc-on-the-laptop.svg" />
+                </div>
+                <div class="clearfix">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="action-link action-link-primary" data-toggle="modal" data-target="#ask-question">
+                        Upgrade your package
+                    </button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="action-link action-link-default" data-toggle="modal" data-target="#ask-question">
+                        Got a question?
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

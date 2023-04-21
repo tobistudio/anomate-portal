@@ -1,0 +1,13 @@
+<% _.each(schema.channel.options, function(option,name){ %>
+    <% if (data.channel==option.val) { %>
+    <div class="media">
+        <div class="media-left">
+            <i class="media-object icon <%= option.icon %>"></i>
+        </div>
+        <div class="media-body media-middle">
+            <h4 class="media-heading"><%= option.label %></h4>
+            <span><%= data.url %></span>
+        </div>
+    </div>
+    <% } %>
+<% }); %>

@@ -1,0 +1,16 @@
+.widget-header {
+    .pull-right {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+}
+
+.data-table {
+    .dataTables_empty {
+        border: none;
+        text-align: center;
+    }
+}

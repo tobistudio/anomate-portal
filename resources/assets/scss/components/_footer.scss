@@ -1,0 +1,85 @@
+
+
+.footer {
+     padding:30px 60px;
+     background-color:#531cab;
+     color:#ADC6FF;
+     
+     @media (max-width: $screen-sm-min) {
+          padding:30px 16px;
+     }
+         
+     .column-md {
+         width: 20%;
+         float: left;
+         @media (max-width: $screen-sm-min) {
+              width:auto;
+              display:block;
+              float:none;
+         }
+     }
+
+     .footer-logo {
+          margin: 30px 0 60px;
+          height:30px;
+          img {
+               height:100%;
+          }
+     }
+
+     .widget-title {
+          color:#FFF;
+          margin-bottom:16px;
+     }
+
+     .menu {
+          margin:0;
+          padding:0;
+          list-style:none;
+          li {
+               color:#ADC6FF;
+               font-size:14px;
+               padding-bottom:10px;
+               a {
+                    color:#ADC6FF;
+                    &:hover {
+                         color:#FFF;
+                    }
+               }
+          }
+     }
+     
+}
+
+.anova-copyright {
+    padding: 30px 0;
+    color:#FFF;
+    font-size:12px;
+}
+
+.anova-social-icons {
+     margin-bottom:10px;
+     .social-icon-heading {
+          display:inline-block;
+          margin-right:5px;
+     }
+     ul.social-icons {
+          display:inline-block;
+          margin:0;
+          padding:0;
+          list-style:none;
+          li {
+               display:inline-block;
+               a {
+                    padding:0 5px;
+                    position:relative;
+                    img {
+                         @include transition(transform .2s);
+                    }
+                    img:hover {
+                         @include scale(1.2);
+                    }
+               }
+          }
+     }
+}

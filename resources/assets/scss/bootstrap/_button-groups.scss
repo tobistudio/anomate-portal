@@ -1,0 +1,244 @@
+//
+// Button groups
+// --------------------------------------------------
+
+// Make the div behave like a button
+.action-link-group,
+.action-link-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; // match .action-link alignment given font-size hack above
+  > .action-link {
+    position: relative;
+    float: left;
+    // Bring the "active" button to the front
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+  }
+}
+
+// Prevent double borders when buttons are next to each other
+.action-link-group {
+  .action-link + .action-link,
+  .action-link + .action-link-group,
+  .action-link-group + .action-link,
+  .action-link-group + .action-link-group {
+    margin-left: -1px;
+  }
+}
+
+// Optional: Group multiple button groups together for a toolbar
+.action-link-toolbar {
+  margin-left: -5px; // Offset the first child's margin
+  @include clearfix;
+
+  .action-link,
+  .action-link-group,
+  .input-group {
+    float: left;
+  }
+  > .action-link,
+  > .action-link-group,
+  > .input-group {
+    margin-left: 5px;
+  }
+}
+
+.action-link-group > .action-link:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+
+// Set corners individual because sometimes a single button can be in a .action-link-group and we need :first-child and :last-child to both match
+.action-link-group > .action-link:first-child {
+  margin-left: 0;
+  &:not(:last-child):not(.dropdown-toggle) {
+    @include border-right-radius(0);
+  }
+}
+// Need .dropdown-toggle since :last-child doesn't apply, given that a .dropdown-menu is used immediately after it
+.action-link-group > .action-link:last-child:not(:first-child),
+.action-link-group > .dropdown-toggle:not(:first-child) {
+  @include border-left-radius(0);
+}
+
+// Custom edits for including action-link-groups within action-link-groups (useful for including dropdown buttons within a action-link-group)
+.action-link-group > .action-link-group {
+  float: left;
+}
+.action-link-group > .action-link-group:not(:first-child):not(:last-child) > .action-link {
+  border-radius: 0;
+}
+.action-link-group > .action-link-group:first-child:not(:last-child) {
+  > .action-link:last-child,
+  > .dropdown-toggle {
+    @include border-right-radius(0);
+  }
+}
+.action-link-group > .action-link-group:last-child:not(:first-child) > .action-link:first-child {
+  @include border-left-radius(0);
+}
+
+// On active and open, don't show outline
+.action-link-group .dropdown-toggle:active,
+.action-link-group.open .dropdown-toggle {
+  outline: 0;
+}
+
+
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
+
+.action-link-group-xs > .action-link { @extend .action-link-xs; }
+.action-link-group-sm > .action-link { @extend .action-link-sm; }
+.action-link-group-lg > .action-link { @extend .action-link-lg; }
+
+
+// Split button dropdowns
+// ----------------------
+
+// Give the line between buttons some depth
+.action-link-group > .action-link + .dropdown-toggle {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.action-link-group > .action-link-lg + .dropdown-toggle {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+// The clickable button for toggling the menu
+// Remove the gradient and set the same inset shadow as the :active state
+.action-link-group.open .dropdown-toggle {
+  @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
+
+  // Show no shadow for `.action-link-link` since it has no other button styles.
+  &.action-link-link {
+    @include box-shadow(none);
+  }
+}
+
+
+// Reposition the caret
+.action-link .caret {
+  margin-left: 0;
+}
+// Carets in other button sizes
+.action-link-lg .caret {
+  border-width: $caret-width-large $caret-width-large 0;
+  border-bottom-width: 0;
+}
+// Upside down carets for .dropup
+.dropup .action-link-lg .caret {
+  border-width: 0 $caret-width-large $caret-width-large;
+}
+
+
+// Vertical button groups
+// ----------------------
+
+.action-link-group-vertical {
+  > .action-link,
+  > .action-link-group,
+  > .action-link-group > .action-link {
+    display: block;
+    float: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  // Clear floats so dropdown menus can be properly placed
+  > .action-link-group {
+    @include clearfix;
+    > .action-link {
+      float: none;
+    }
+  }
+
+  > .action-link + .action-link,
+  > .action-link + .action-link-group,
+  > .action-link-group + .action-link,
+  > .action-link-group + .action-link-group {
+    margin-top: -1px;
+    margin-left: 0;
+  }
+}
+
+.action-link-group-vertical > .action-link {
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+  &:first-child:not(:last-child) {
+    @include border-top-radius($action-link-border-radius-base);
+    @include border-bottom-radius(0);
+  }
+  &:last-child:not(:first-child) {
+    @include border-top-radius(0);
+    @include border-bottom-radius($action-link-border-radius-base);
+  }
+}
+.action-link-group-vertical > .action-link-group:not(:first-child):not(:last-child) > .action-link {
+  border-radius: 0;
+}
+.action-link-group-vertical > .action-link-group:first-child:not(:last-child) {
+  > .action-link:last-child,
+  > .dropdown-toggle {
+    @include border-bottom-radius(0);
+  }
+}
+.action-link-group-vertical > .action-link-group:last-child:not(:first-child) > .action-link:first-child {
+  @include border-top-radius(0);
+}
+
+
+// Justified button groups
+// ----------------------
+
+.action-link-group-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  > .action-link,
+  > .action-link-group {
+    display: table-cell;
+    float: none;
+    width: 1%;
+  }
+  > .action-link-group .action-link {
+    width: 100%;
+  }
+
+  > .action-link-group .dropdown-menu {
+    left: auto;
+  }
+}
+
+
+// Checkbox and radio options
+//
+// In order to support the browser's form validation feedback, powered by the
+// `required` attribute, we have to "hide" the inputs via `clip`. We cannot use
+// `display: none;` or `visibility: hidden;` as that also hides the popover.
+// Simply visually hiding the inputs via `opacity` would leave them clickable in
+// certain cases which is prevented by using `clip` and `pointer-events`.
+// This way, we ensure a DOM element is visible to position the popover from.
+//
+// See https://github.com/twbs/bootstrap/pull/12794 and
+// https://github.com/twbs/bootstrap/pull/14559 for more information.
+
+[data-toggle="buttons"] {
+  > .action-link,
+  > .action-link-group > .action-link {
+    input[type="radio"],
+    input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+      pointer-events: none;
+    }
+  }
+}

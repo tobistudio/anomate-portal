@@ -1,0 +1,77 @@
+<div class="container">
+
+    <% if (collection.length==0) { %>
+    
+    <div class="row">
+        <div class="column-md-12 widget">
+            <div class="widget-inner widget-large">
+                <div class="clearfix padding-bottom">
+                    <h2>Let’s add your domain!</h2>
+                    <p class="padding-bottom">
+                        Once verified, you can use the domain as the sender address for your email <br>
+                        campaigns, which can improve deliverability and brand recognition.
+                    </p>
+                    <img src="/assets/infobox/nt-working-woman-on-laptop.svg" />
+                </div>
+                <div class="clearfix">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="action-link action-link-default"
+                        data-backdrop="false"
+                        data-keyboard="false"
+                        data-toggle="modal" 
+                        data-target="#modal-container">
+                        Get started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <% } else { %>
+    
+    <div class="row">
+        <div class="column-md-12 widget-forms">
+            <div class="widget-inner">
+                <div class="widget-header">
+                    <h3 class="widget-header-title">Domain status</h3>
+                    <span class="widget-header-label">Ut odio lacus turpis lacus amet nisi. Nunc mi sit sed dolor lacinia libero scelerisque bibendum. Congue tristique sed volutpat massa bibendum amet sed.</span>
+                </div>
+                <div class="widget-body">
+                    <table class="table table-filter data-table display">
+                      <thead>
+                        <tr>
+                          <th>Domain</th>
+                          <th>Verification Status</th>
+                          <th>Verification Type</th>
+                          <th>Currently Used</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% collection.each(function(model,index) { %>
+                        <tr>
+                            <td><%= model.get('domain') %></td>
+                            <td><%= model.get('status') %></td>
+                            <td><%= model.get('verify-type') %></td>
+                            <td><%= model.get('current-used') %></td>
+                        </tr>
+                        <% }) %>
+                      </tbody>
+                    </table>
+                </div>
+                <div class="widget-footer clearfix">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="action-link action-link-default pull-right"
+                        data-backdrop="false"
+                        data-keyboard="false"
+                        data-toggle="modal" 
+                        data-target="#modal-container">
+                        Add new domain
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <% } %>
+    
+</div>

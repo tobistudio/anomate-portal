@@ -1,0 +1,58 @@
+<!-- prettier-ignore -->
+
+<div class="sidebar-logo">
+    <a href="<%= helpers.defineURL('home') %>"><img src="/assets/logo-white.png" /></a>
+</div>
+
+<div class="sidebar-scrollable-area">
+    <div class="sidebar-navigation accordion-wraper" role="tablist" aria-multiselectable="true">
+        <% _.each(navs, function (nav,name) { %> 
+        
+            <% if (nav.sidebar&&nav.sidebar=="show") { %>
+            <div data-id="<%= nav.url %>" class="sidebar-navigation-item nav-<%= nav.url %>">
+                
+                <div class="sidebar-navigation-primary">
+                    <a href="<%= helpers.defineURL(nav.url) %>">
+                        <i class="sidebar-navigation-icon <%= nav.icon %>"></i><%= nav.name %>
+                    </a>
+                    <% if (nav.child) { %>
+                        <span data-navigate="<%= helpers.defineURL(nav.url) %>" class="sidebar-navigation-toggle">
+                            <i class="sidebar-navigation-arrow">
+                            <img src="/assets/controls/arrow.svg" /></i>
+                        </span>
+                    <% } %>
+                </div>
+                
+                <% if (nav.child) { %>
+                <div id="collapse-<%= name %>" class="sidebar-navigation-child" role="tabpanel">
+                    <ul class="sidebar-navigation-child_list">
+                        <% _.each(nav.child, function (child,childName) { %>
+                        <li>
+                            <a href="<%= helpers.defineURL(child.url) %>">
+                                <%= child.name %>
+                            </a>
+                        </li>
+                        <% }); %>
+                    </ul>
+                </div>
+                <% } %>
+                
+            </div>
+            <% } %>
+            
+        <% }); %>
+    </div>
+</div>
+
+<div class="sidebar-footer">
+    <div class="sidebar-footer-inner">
+        <div class="sidebar-navigation-item">
+            <span class="sidebar-navigation-primary">
+                <a href="/api/user/logout" class="sidebar-navigation-primary">
+                    <i class="sidebar-navigation-icon ai-dashboard"></i>
+                    Log out
+                </a>
+            </span>
+        </div>
+    </div>
+</div>

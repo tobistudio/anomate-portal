@@ -1,0 +1,107 @@
+.timeline {
+    height: 340px;
+    padding: 25px 25px 0;
+
+    .timeline-message {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        padding-bottom: 28px;
+    }
+        
+    .timeline-item {
+        padding:0;
+        display: flex;
+
+        .timeline-status {
+            padding-top: 6px;
+            min-height: 70px;
+            position:relative;
+            text-align:center;
+              
+            &:after {
+                display:block;
+                width:2px;
+                height:100%;
+                background-color:#E8E8E8;
+                content:"";
+                position:absolute;
+                top: 10px;
+                left: 0;
+                right: 0;
+                margin: auto;
+            } 
+              
+            .timeline-status-decoration {
+                position: relative;
+                display: block;
+                
+                width: 18px;
+                height: 18px;
+                margin: auto;
+                border:2px solid #FFF;
+                background: #FFE58F;
+                border-radius: 2px;
+                z-index:1;
+                
+                &.winback {
+                    background: #4BD4FB;
+                }
+                
+                &:before,
+                &:after {
+                    position:absolute;
+                    content:"";
+                    width: 0;
+                    height: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    border-style: solid;
+                    border-width: 0 6px 18px 6px;
+                    @include translate(0,0);
+                }
+                
+                &:before {
+                    top:-20px;
+                    border-color: transparent transparent #E8E8E8 transparent;
+                }
+                
+                &:after {
+                    bottom:-20px;
+                    border-width: 18px 6px 0 6px;
+                    border-color: #E8E8E8 transparent transparent transparent;
+                }
+                
+            }
+
+        }
+        
+    }
+
+     .timeline-item:first-child {
+        .timeline-status-decoration {
+            &:before {
+                display:none;
+            }
+        }
+     }
+     
+     .timeline-item:last-child {
+        .timeline-status-decoration {
+            &:after {
+                display:none;
+            }
+        }
+        .timeline-status {
+            min-height: auto;
+            &:after {
+                display:none;
+            }
+        }
+        .timeline-message {
+            padding-bottom: 0;
+        }
+     }
+     
+}

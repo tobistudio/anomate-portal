@@ -1,0 +1,122 @@
+<!-- prettier-ignore -->
+
+<div class="widget-header">
+    
+    <div class="pull-left">
+        <div class="widget-title">
+            <%= header.title || '<h3>Widget title</h3>' %>
+            <%= header.label || '<span>Wiedget label</span>' %>
+        </div>
+    </div>
+
+    <div class="pull-right">
+        <% if (labels && label.position == "header") { %>
+        <ul class="widget-nav">
+            <% _.each(labels,function(value,key) { %>
+            <li>
+                <a 
+                    class="widget-nav-item <% if (label && label.disable) { %>disabled<% } %>"
+                    data-index="<%= key %>" 
+                    data-status="true" 
+                    href="#"
+                >
+                    <span>
+                        <span style="background-color: <%= value.style %>" class="widget-nav-point"></span>
+                        <%= value.title %>
+                    </span>
+    
+                    <% if (labels) { %>
+                        <span>
+                            <%= value.value %>
+                        <span>
+                    <% } %>
+                </a>
+            </li>
+            <% }) %>
+        </ul>
+        <% } %>
+
+        <% if (dateFilter && label.position != "header") { %>
+        <div class="date-range-group">
+            <button type="button" class="date-range action-link action-link-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= dateRange[0].label %>
+            </button>
+    
+            <ul class="dropdown-menu date-range-dropdown">
+                <% _.each(dateRange,function(value,key) { %>
+                <li>
+                    <a class="date-range-drop-item" data-index="<%= key %>" role="button">
+                        <%= value.label %>
+                    </a>
+                </li>
+                <% }) %>
+            </ul>
+        </div>
+        <% } %>
+    </div>
+
+</div>
+
+<div class="widget-body">
+    <% if (dateFilter && label.position == "header") { %>
+        <div style="display: flex; justify-content: flex-end;">
+            <div class="date-range-group">
+                <button type="button" class="date-range action-link action-link-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= dateRange[0].label %>
+                </button>
+        
+                <ul class="dropdown-menu date-range-dropdown">
+                    <% _.each(dateRange,function(value,key) { %>
+                    <li>
+                        <a class="date-range-drop-item" data-index="<%= key %>" role="button">
+                            <%= value.label %>
+                        </a>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    <% } %>
+
+    <div class="chart-wraper" style="position: relative; height: 300px">
+        <% if (chartTitle) { %>
+        <div class="chart-title">
+            <% if (chartTitle.title) { %>
+                <h3 class="text-md"><%= chartTitle.title %></h3>
+            <% } %> 
+            
+            <% if (chartTitle.label) { %>
+                <label class="text-sm"> <%= chartTitle.label %></label>
+            <% } %>
+        </div>
+        <% } %>
+
+        <canvas></canvas>
+    </div>
+
+    <% if (labels && label && label.position != "header") { %>
+    <ul class="widget-nav <%= label.position %> <%= label.direction %>">
+        <% _.each(labels,function(value,key) { %>
+        <li>
+            <a 
+                class="widget-nav-item <% if (label && label.disable) { %>disabled<% } %>"
+                data-index="<%= key %>" 
+                data-status="true" 
+                href="#"
+            >
+                <span>
+                    <span style="background-color: <%= value.style %>" class="widget-nav-point"></span>
+                    <%= value.title %>
+                </span>
+
+                <% if (labels) { %>
+                    <span>
+                        <%= value.value %>
+                    <span>
+                <% } %>
+            </a>
+        </li>
+        <% }) %>
+    </ul>
+    <% } %>
+</div>

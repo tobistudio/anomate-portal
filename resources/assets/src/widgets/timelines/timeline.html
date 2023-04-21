@@ -1,0 +1,28 @@
+<!-- prettier-ignore -->
+
+<div class="widget-header">
+    <div class="pull-left">
+        <div class="widget-title">
+             <h3 class="widget-header-title"><%= header.title || 'Widget title' %></h3> 
+            <span class="widget-header-label"><%= header.label || 'Widget label' %></span>
+        </div>
+    </div>
+</div>
+
+<div class="widget-body timeline">
+    <% _.each(logs,function(item,key) { %>
+    <div class="row timeline-item" data-index="<%= key %>">
+        <div class="timeline-time column-md-3">
+            <strong><%= item.time %></strong>
+        </div>
+        <div class="timeline-status column-md-1">
+            <span style="background-color: <%= item.color %>" class="timeline-status-decoration">
+            </span>
+        </div>
+        <div class="timeline-message column-md-8">
+            <%= item.message %>
+            <span class="text-primary">#<%= item.id %></span>
+        </div>
+    </div>
+    <% }) %>
+</div>

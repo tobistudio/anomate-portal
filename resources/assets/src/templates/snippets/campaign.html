@@ -1,0 +1,10 @@
+<div class="card-inner card-<%= model.id %>">
+    <span class="card-icon">
+        <img src="<%= model.get('icon') %>" />
+    </span>
+    <h4 class="card-title"><%= model.get('campaign_name') %></h4>
+    <div class="card-description"><%= model.get('campaign_description') %></div>
+    <div class="card-links">
+        <a href="#">View details</a>
+    </div>
+</div>

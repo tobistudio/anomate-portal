@@ -1,0 +1,15 @@
+<!-- prettier-ignore -->
+
+<li>
+    <a class="breadcrumb-home" href="<%= helpers.defineURL('home') %>">
+        <i class="ai-dashboard"></i>
+    </a>
+</li>
+
+<% if (data.controller) { %>
+    <li>
+        <a href="<%= helpers.defineURL(data.controller.url) %>"><%= data.controller.name %></a>
+    </li>
+<% } %> <% if (data.method) { %>
+    <li class="active"><%= data.method.name %></li>
+<% } %>

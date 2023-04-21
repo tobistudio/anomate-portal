@@ -1,0 +1,124 @@
+//== infoboxs
+//
+//## Define infobox colors, border radius, and padding.
+
+$infobox-padding:               32px !default;
+$infobox-border-radius:         8px !default;
+$infobox-link-font-weight:      bold !default;
+
+$infobox-customers-bg:          #FFF2E8 !default;
+$infobox-customers-text:        #6C5E77 !default;
+$infobox-customers-border:      $state-success-border !default;
+
+$infobox-notice-bg:             #FEFFE6 !default;
+$infobox-notice-text:           #6C5E77 !default;
+$infobox-notice-border:         $state-success-border !default;
+
+$infobox-success-bg:            $state-success-bg !default;
+$infobox-success-text:          $state-success-text !default;
+$infobox-success-border:        $state-success-border !default;
+
+$infobox-info-bg:               $state-info-bg !default;
+$infobox-info-text:             $state-info-text !default;
+$infobox-info-border:           $state-info-border !default;
+
+$infobox-warning-bg:            #FFF2E8 !default;
+$infobox-warning-text:          #6C5E77 !default;
+$infobox-warning-border:        $state-warning-border !default;
+
+$infobox-danger-bg:             $state-danger-bg !default;
+$infobox-danger-text:           $state-danger-text !default;
+$infobox-danger-border:         $state-danger-border !default;
+
+// Base styles
+// -------------------------
+
+.infobox {
+  padding: $infobox-padding;
+  margin-bottom: $line-height-computed;
+  border: 0px solid transparent;
+  border-radius: $infobox-border-radius;
+
+  .infobox-title {
+    margin-bottom:0;
+  }
+  
+  // Headings for larger infoboxs
+  h4 {
+    margin-top: 0;
+    color: inherit; // Specified for the h4 to prevent conflicts of changing $headings-color
+  }
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 30px;
+  }
+
+  > p + p {
+    margin-top: 5px;
+  }
+  
+}
+
+// Dismissible infoboxs
+//
+// Expand the right padding and account for the close button's positioning.
+
+// The misspelled .infobox-dismissable was deprecated in 3.2.0.
+.infobox-dismissable,
+.infobox-dismissible {
+  padding-right: ($infobox-padding + 20);
+  // Adjust close link position
+  .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+  }
+}
+
+.infobox-customers {
+    @include alert-variant(#FFF2E8, #FFF2E8, $infobox-customers-text);
+    background-image:url('../assets/infobox/customers.svg');
+    background-repeat:no-repeat;
+    background-position:right center;
+    height:250px;
+}
+
+.infobox-giveaway {
+    @include alert-variant(#E6FFFB, #E6FFFB, $infobox-customers-text);
+    background-image:url('../assets/infobox/giveaway.svg');
+    background-repeat:no-repeat;
+    background-position:right center;
+    height:250px;
+}
+
+.infobox-notice {
+    @include alert-variant(#FEFFE6, #FEFFE6, $infobox-notice-text);
+    background-image:url('../assets/infobox/cart.svg');
+    background-repeat:no-repeat;
+    background-position:right center;
+    height:250px;
+}
+
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the infobox.
+
+.infobox-success {
+  @include alert-variant($infobox-success-bg, $infobox-success-border, $infobox-success-text);
+}
+
+.infobox-info {
+  @include alert-variant($infobox-info-bg, $infobox-info-border, $infobox-info-text);
+}
+
+.infobox-warning {
+  @include alert-variant($infobox-warning-bg, $infobox-warning-border, $infobox-warning-text);
+}
+
+.infobox-danger {
+  @include alert-variant($infobox-danger-bg, $infobox-danger-border, $infobox-danger-text);
+}

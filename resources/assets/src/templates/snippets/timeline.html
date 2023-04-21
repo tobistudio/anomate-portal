@@ -1,0 +1,11 @@
+<div class="timeline-time column-md-3">
+    <strong><%= model.get('time') %></strong>
+</div>
+<div class="timeline-status column-md-1">
+    <span style="background-color: <%= model.get('color') %>" class="timeline-status-decoration">
+    </span>
+</div>
+<div class="timeline-message column-md-8">
+    <%= model.get('message') %>
+    <span class="pull-right text-primary">#<%= model.cid %></span>
+</div>

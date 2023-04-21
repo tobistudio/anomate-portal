@@ -1,0 +1,88 @@
+<div class="container margin-top">
+
+    <div class="block-header">
+        <div class="campaign_single_heading clearfix">
+            <%= helpers.cmpStatus(model.get('status')) %>
+            <h2 class="campaign_single_heading-title"><%= model.get("campaign_name") %></h2>
+        </div>
+        <p class="campaign_single_description clearfix"><%= model.get("campaign_description") %></p>
+    </div>
+
+    <div class="row">
+        <div class="column-md-3 widget-small">
+            <div class="widget-inner">
+                <div class="widget-items">
+                    <span class="widget-items-value">£<%= model.get("total_revenue") || 0 %></span>
+                    Total revenue
+                </div>
+            </div>
+        </div>
+        <div class="column-md-3 widget-small">
+            <div class="widget-inner">
+                <div class="widget-items">
+                    <span class="widget-items-value"><%= model.get("total_orders") || 0 %></span>
+                    Total orders
+                </div>
+            </div>
+        </div>
+        <div class="column-md-3 widget-small">
+            <div class="widget-inner">
+                <div class="widget-items">
+                    <span class="widget-items-value"><%= model.get("emails_sent") || 0 %></span>
+                    Total emails sent
+                </div>
+            </div>
+        </div>
+        <div class="column-md-3 widget-small">
+            <div class="widget-inner">
+                <div class="widget-items">
+                    <span class="widget-items-value"><%= model.get("generated_coupons") || 0 %></span>
+                    Coupons generated
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        
+        <div class="column-md-6 widget">
+            <div id="holder-campaign-performance" class="widget-inner">
+                <%= helpers.inlineLoadingAnimation() %>
+            </div>
+        </div>
+        
+        <div class="column-md-6 widget">
+            <div id="holder-email-performance" class="widget-inner">
+                <%= helpers.inlineLoadingAnimation() %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column-md-12 widget">
+            <div id="holder-automated-emails" class="widget-inner">
+                <%= helpers.inlineLoadingAnimation() %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column-md-6 widget">
+            <div id="holder-user-location" class="widget-inner">
+                <%= helpers.inlineLoadingAnimation() %>
+            </div>
+        </div>
+
+        <div class="column-md-6 widget">
+            <div class="widget-inner">
+                <div class="widget-header">
+                    <h3 class="widget-header-title">Timeline</h3>
+                    <span class="widget-header-label">Latest activity</span>
+                </div>
+
+                <div class="widget-body"></div>
+            </div>
+        </div>
+    </div>
+    
+</div>

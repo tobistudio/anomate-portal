@@ -1,0 +1,239 @@
+.toggle-wrap {
+    float: right;
+    margin-top: 26px;
+    display:none;
+    position:relative;
+    z-index:3;
+    @media (max-width: $screen-sm-min) {
+        position: absolute;
+        right: 20px;
+        top: 0;
+    }
+    
+    .toggle-bar {
+    	width:25px;
+    	margin:10px 6px;
+    	position: relative;
+    	border-top:2px solid #262626;
+    	display: block;
+        &::before,
+        &::after {
+        	content: "";
+        	display: block;
+        	background: #262626;
+        	height:2px;
+        	width:25px;
+        	position: absolute;
+        	top:-12px;
+            @include transition(transform .2s ease-in-out);
+            @include rotate(0deg);
+            @include transform-origin(0%);
+        }
+        &::after {
+          top: 7px;
+        }
+    }
+
+    &.active {
+        .toggle-bar {
+            border-top: 2px solid transparent;
+            &::before {
+                @include rotate(45deg);
+            }
+            &::after {
+                @include rotate(-45deg);
+                top: 6px;
+            }
+        }
+    }
+
+}
+
+    
+.header {
+    position:relative;
+    width: 100%;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    padding:0 34px;
+    height:80px;
+    border-bottom: 1px solid #E8E8E8;
+    
+    .progress-loader {
+        display: block;
+        width:0;
+        background-color: $brand-primary;
+        height:2px;
+        position: absolute;
+        z-index:2;
+        top:0;
+        left:0;
+        &.animation-start {
+            @include transition(all .60s linear);
+            width:100%;
+        }
+        &.animation-complete {
+            @include transition(all .60s linear);
+            left:auto;
+            right:0;
+            width:0;
+        }
+    }
+
+    a.primary-logo-link {
+        display:block;
+        float:left;
+        height: 30px;
+        img {
+            display: inline-block;
+            height:100%;
+        }
+    }
+        
+    @media (max-width: $screen-sm-min) {
+        display:block;
+        padding:0 16px;
+        height:72px;
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:$zindex-navbar-fixed;
+        
+        a.primary-logo-link {
+            display:block;
+            float:left;
+            height:auto;
+            img {
+                height: 15.65px;
+                display: inline-block;
+                margin-top: 28px;
+            }
+        }
+        
+        .toggle-wrap {
+            display:block;
+        }
+        
+    }
+      
+    .header-navbar {
+        margin-left: auto;
+        
+        .header-navbar-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin:auto;
+            
+            @media (max-width: $screen-sm-min) {
+                display: block;
+                display:none;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #FFF;
+                z-index: 2;
+                padding:66px 16px 16px;
+                &.mobile {
+                    
+                }
+                &.visible {
+                    display:block;
+                }
+            }
+            
+            .menu-item {
+                display:block;
+                
+                @media (max-width: $screen-sm-min) {
+                    margin-bottom:8px;
+                }
+                
+                > a {
+                    display: inline-block;
+                    padding: 5px 0;
+                    margin:0 28px 0;
+                    text-decoration: none;
+                    color:$gray-base;
+                    position:relative;
+                    font-weight:600;
+                    @media (max-width: $screen-sm-min) {
+                        display:block;
+                        margin: 0 16px;
+                        padding: 8px 0;
+                    }
+                }
+                
+                &.button {
+                    @media (max-width: $screen-sm-min) {
+                        text-align:center;
+                        padding-top: 32px;
+                        margin: 16px;
+                        border-top:1px solid #E8E8E8;
+                    }
+                    a {
+                        @media (max-width: $screen-sm-min) {
+                            margin:auto;
+                        }
+                        text-align:center;
+                        @include button-variant($action-link-primary-color, $action-link-primary-bg, $action-link-primary-border);
+                        // line-height: ensure even-numbered height of button next to large input
+                        @include button-size($padding-large-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $action-link-border-radius-base);
+                    }
+                }
+                
+                .user-notifications {
+                    font-size: 32px;
+                    color:rgba(217, 217, 217, 1);
+                    &:hover {
+                        color:#111;
+                    }
+                }
+
+                &.user {
+                    > a {
+                        position:relative;
+                        padding:5px 40px 5px 60px;
+                        margin:0;
+                        .user-image {
+                            position:absolute;
+                            overflow:hidden;
+                            width:48px;
+                            height:48px;
+                            left:0;
+                            border-radius:100%;
+                            background-color:#E6FFFB;
+                            border: 1px solid #000000;
+                            text-align:center;
+                            img {
+                                width:100%;
+                            }
+                        }
+                        span {
+                            display:block;
+                            font-size:12px;
+                            font-weight:400;
+                        }
+                        .user-nav {
+                            position: absolute;
+                            right: 0;
+                            top: 18px;
+                            color:rgba(217, 217, 217, 1);
+                        }
+                    }
+                }
+                
+            }
+
+        }
+        
+    }
+    
+    .primary-logo {
+        display: inline-block;
+    }
+    
+}

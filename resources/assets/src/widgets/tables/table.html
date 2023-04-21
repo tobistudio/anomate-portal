@@ -1,0 +1,37 @@
+<!-- prettier-ignore -->
+
+<div class="widget-header">
+    <div class="pull-left">
+        <div class="widget-title">
+            <%= header.title || '<h3>Widget title</h3>' %>
+            <%= header.label || '<span>Wiedget label</span>' %>
+        </div>
+    </div>
+
+    <div class="pull-right">
+        <% if (header.actionTitle) { %>
+            <a href="#" class="action-link header-action-item action-link-default"><%= header.actionTitle %></a>
+        <% } %>
+
+        <% if (actionGroup) { %>
+        <div class="action-link-toolbar">
+            <div class="action-link-group" role="group" aria-label="table action group">
+                <% _.each(actionGroup,function(actionItem,key) { %>
+                <button 
+                    type="button" 
+                    data-index="<%= key %>"
+                    data-key="<%= actionItem.key %>"
+                    class="action-link action-group-item <%= actionItem.active ? 'action-link-primary' : 'action-link-default' %> "
+                >
+                    <%= actionItem.title %>
+                </button>
+                <% }) %>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<div class="widget-body">
+    <table class="table table-filter data-table display" width="100%"></table>
+</div>

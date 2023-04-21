@@ -1,0 +1,81 @@
+<!-- prettier-ignore -->
+
+<div class="container margin-top">
+    <div class="row">
+        <div class="column-md-8">
+            <div class="infobox infobox-customers">
+                <h2 class="infobox-title">Welcome new customers!</h2>
+                <p>
+                    Description of the campaign. Cras dui nibh tristique vitae nulla <br />
+                    nunc donec. Amet in purus quis ut imperdiet. Feugiat aenean <br />
+                    posuere adipiscing lacus.
+                </p>
+                <a href="#" class="action-link action-link-primary"> Buy campaign </a>
+                <a href="#" class="action-link action-link-link"> Remind me later </a>
+            </div>
+        </div>
+        <div class="column-md-4">
+            <div class="infobox infobox-notice infobox-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3>Did you know...</h3>
+                <p>
+                    that 69.57% of online shopping carts <br />
+                    are abandoned?
+                </p>
+                <a href="#"> Let’s do something about it </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="block-header">
+        <div class="pull-left">
+            <h2>Your performance</h2>
+            <p>
+                Cras dui nibh tristique vitae nulla nunc donec. Amet in purus quis ut imperdiet.
+            </p>
+        </div>
+        <div class="pull-right">
+            <!-- Button trigger modal -->
+            <button type="button" class="date-range action-link action-link-default">
+                <%= range %> <i class="user-notifications ai-calendar"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column-md-6 widget">
+            <div id="chart-total-revenue" class="widget-inner">
+                <%= helpers.inlineLoadingAnimation() %>
+            </div>
+        </div>
+        <div class="column-md-6">
+            <div id="cmp-stats" class="row"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column-md-12 widget">
+            <div  id="cmp-performance" class="widget-inner">
+                <%= helpers.inlineLoadingAnimation() %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        
+        <div class="column-md-6 widget">
+            <div id="cmp-topsellers" class="widget-inner">
+                <%= helpers.inlineLoadingAnimation() %>
+            </div>
+        </div>
+
+        <div class="column-md-6 widget">
+            <div id="activitytimeline" class="widget-inner">
+                <%= helpers.inlineLoadingAnimation() %>
+            </div>
+        </div>
+        
+    </div>
+</div>

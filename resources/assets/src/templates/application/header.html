@@ -1,0 +1,59 @@
+<!-- prettier-ignore -->
+<div class="progress-loader"></div>
+
+<div class="header-navbar">
+    <div class="toggle-wrap">
+        <span class="toggle-bar"></span>
+    </div>
+    <ul id="primary-menu-list" class="header-navbar-links">
+        <li class="button menu-item">
+            <a href="#">Upgrade</a>
+        </li>
+
+        <li class="notitifaction menu-item">
+            <a href="#">
+                <i class="user-notifications ai-bell"></i>
+            </a>
+        </li>
+
+        <li role="presentation" class="dropdown user menu-item">
+            <a id="user-navigation" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                <div class="user-image">
+                    <img class="user-image-default" src="<%= model.get("avatar") ||
+                    '/assets/avatar.png' %>" />
+                </div>
+                <%= model.get('firstname') %> <%= model.get('lastname') %>
+                <span><%= model.get("position") %></span>
+                <i class="user-nav ai-chevron-down"></i>
+            </a>
+
+            <ul id="user-navigation" class="dropdown-menu pull-right" aria-labelledby="user-navigation">
+                <li>
+                    <a data-link="user-nav" href="<%= helpers.defineURL('user/profile') %>">
+                        <i class="ai-gear"></i>
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <a data-link="user-nav" href="<%= helpers.defineURL('user/settings') %>">
+                        <i class="ai-credit-card"></i>
+                        Store settings
+                    </a>
+                </li>
+                <li>
+                    <a data-link="user-nav" href="<%= helpers.defineURL('user/billing') %>">
+                        <i class="ai-question"></i>
+                        Billing
+                    </a>
+                </li>
+                <li>
+                    <a data-link="user-nav" href="<%= helpers.defineURL('user/support') %>">
+                        <i class="ai-question"></i>
+                        Support
+                    </a>
+                </li>
+            </ul>
+            
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,31 @@
+
+<div class="modal-header text-center">
+    <h3 class="widget-header-title"><%= title %></h3>
+    <p>
+        We wanted to inform you that we are currently checking the DNS zone for your domain to ensure that the necessary TXT records<br>
+        have been properly set up. This is an important step to verify your domain ownership!
+    </p>
+</div>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="column-md-6 column-md-offset-3 text-center">
+            <img src="/assets/infobox/nt-working-woman-on-laptop.svg" />
+            <p class="margin-top">
+                Please note that this process may take some time to complete, <br> depending on the DNS propagation time.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <% if (this.options.cancelButton) { %>
+    <button type="reset" class="action-link reset action-link-default pull-left">
+        <%= this.options.cancelButton %>
+    </button>
+    <% } %> <% if (this.options.submitButton) { %>
+    <button type="submit" class="action-link submit action-link-default pull-right">
+        <%= this.options.submitButton %>
+    </button>
+    <% } %>
+</div>

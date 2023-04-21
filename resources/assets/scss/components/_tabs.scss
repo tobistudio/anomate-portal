@@ -1,0 +1,48 @@
+
+/*!
+ * Tabs 
+ */
+.tabs {
+    background-color:#FFF;
+    padding:28px 34px 0;
+    
+    .tabs-navigation {
+        margin:0;
+        padding:0;
+        list-style:none;
+        font-weight:500;
+        li {
+            position:relative;
+            display:inline-block;
+            margin-right: 34px;
+            a {
+                display:block;
+                position:relative;
+                padding:0 0 8px;
+                line-height:24px;
+                color:#6C5E77;
+                &::before {
+                    display:block;
+                    content:"";
+                    width:0;
+                    height:4px;
+                    background-color:$brand-primary;
+                    bottom:0;
+                    position:absolute;
+                    @include transition(all .4s);
+                    @media (max-width: $screen-sm-min) {
+                        display:none;
+                    }
+                }
+                &.active,
+                &:hover {
+                    color:#262626;
+                    &::before {
+                        width:100%;
+                    }
+                }
+            }
+        }
+    }
+    
+}

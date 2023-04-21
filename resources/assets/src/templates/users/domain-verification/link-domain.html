@@ -1,0 +1,29 @@
+
+<div class="modal-header text-center">
+    <h3 class="widget-header-title"><%= title %></h3>
+    <p><%= description %></p>
+</div>
+
+<form class="clearfix">
+    
+    <div class="modal-body">
+        <div class="row">
+            <div class="column-md-6 column-md-offset-3">
+                <div data-fields="domain"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-footer">
+        <% if (this.options.cancelButton) { %>
+        <button type="reset" class="action-link submit action-link-default pull-left">
+            <%= this.options.cancelButton %>
+        </button>
+        <% } %> <% if (this.options.submitButton) { %>
+        <button type="submit" class="action-link submit action-link-default pull-right">
+            <%= this.options.submitButton %>
+        </button>
+        <% } %>
+    </div>
+    
+</form>

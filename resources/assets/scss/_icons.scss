@@ -1,0 +1,136 @@
+
+/* MaterialDesignIcons.com */
+@font-face {
+    font-family: "Material Design Icons";
+    src: url("../assets/fonts/icons.eot");
+    src: url("../assets/fonts/icons.eot?#iefix") format("embedded-opentype"), 
+         url("../assets/fonts/icons.woff2") format("woff2"), 
+         url("../assets/fonts/icons.woff") format("woff"), 
+         url("../assets/fonts/icons.ttf") format("truetype");
+        
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "akar-icons";
+    src: url("../assets/fonts/akar-icons.ttf?82581bfbb39b67cf723d1ed8edfb6c83") format("truetype"),
+         url("../assets/fonts/akar-icons.woff?82581bfbb39b67cf723d1ed8edfb6c83") format("woff"),
+         url("../assets/fonts/akar-icons.svg?82581bfbb39b67cf723d1ed8edfb6c83#akar-icons") format("svg");
+}
+
+
+i[class^="ai-"]:before, 
+i[class*=" ai-"]:before {
+    font-family: akar-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.mdi:before,
+.mdi-set {
+  display: inline-block;
+  font: normal normal normal 24px/1 "Material Design Icons";
+  font-size: inherit;
+  text-rendering: auto;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mdi-bell-outline::before {
+  content: "\F009C";
+}
+.ai-bell:before {
+    content: "\f136";
+}
+.ai-gear:before {
+    content: "\f1b7";
+}
+.ai-dashboard:before {
+    content: "\f188";
+}
+.ai-send:before {
+    content: "\f237";
+}
+.ai-people-group:before {
+    content: "\f210";
+}
+.ai-credit-card:before {
+    content: "\f182";
+}
+.ai-question:before {
+    content: "\f22a";
+}
+.ai-chevron-down:before {
+    content: "\f154";
+}
+.ai-chevron-horizontal:before {
+    content: "\f155";
+}
+.ai-chevron-left:before {
+    content: "\f156";
+}
+.ai-chevron-right:before {
+    content: "\f157";
+}
+.ai-chevron-up:before {
+    content: "\f158";
+}
+.ai-chevron-vertical:before {
+    content: "\f159";
+}
+.ai-alarm:before {
+    content: "\f105";
+}
+.ai-panel-split-column:before {
+    content: "\f205";
+}
+.ai-settings-horizontal:before {
+    content: "\f238";
+}
+.ai-calendar:before {
+    content: "\f144";
+}
+.ai-arrow-down:before {
+    content: "\f11a";
+}
+.ai-arrow-up:before {
+    content: "\f129";
+}
+.ai-gift:before {
+    content: "\f1b8";
+}
+.ai-grid:before {
+    content: "\f1bf";
+}
+
+.ai-facebook-fill:before {
+    content: "\f1aa";
+}
+.ai-linkedin-fill:before {
+    content: "\f1e2";
+}
+.ai-twitter-fill:before {
+    content: "\f27a";
+}
+.ai-pinterest-fill:before {
+    content: "\f21a";
+}
+.ai-instagram-fill:before {
+    content: "\f1d2";
+}
+.mdi-dots-vertical::before {
+  content: "\F01D9";
+}
+.mdi-check::before {
+  content: "\F0E1E";
+}
+.mdi-close::before {
+  content: "\F0156";
+}

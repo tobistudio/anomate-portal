@@ -1,0 +1,185 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+.action-link {
+  text-align:center;
+  display: inline-block;
+  
+  margin-bottom: 0; // For input.action-link
+  font-weight: $action-link-font-weight;
+  
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $action-link-border-radius-base);
+  @include user-select(none);
+  @include transition(background .2s);
+
+  &-noicon {
+    &:after {
+      display:none;
+    }
+  }
+
+  &.width-normal {
+    width:200px;
+  }
+  
+  &.width-small {
+    width:160px;
+  }
+  
+  &:focus-visible,
+  &:hover,
+  &:focus,
+  &.focus {
+    color: $action-link-default-color;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    outline: 0;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+    @include opacity(.65);
+    @include box-shadow(none);
+  }
+
+  // [converter] extracted a& to a.action-link
+}
+
+a.action-link {
+  &.disabled,
+  fieldset[disabled] & {
+    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+  }
+}
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+.action-link-default {
+  @include button-variant($action-link-default-color, $action-link-default-bg, $action-link-default-border);
+}
+
+.action-link-primary {
+  @include button-variant($action-link-primary-color, $action-link-primary-bg, $action-link-primary-border);
+}
+
+// Success appears as green
+.action-link-success {
+  @include button-variant($action-link-success-color, $action-link-success-bg, $action-link-success-border);
+}
+
+// Info appears as blue-green
+.action-link-info {
+  @include button-variant($action-link-info-color, $action-link-info-bg, $action-link-info-border);
+}
+
+// Warning appears as orange
+.action-link-warning {
+  @include button-variant($action-link-warning-color, $action-link-warning-bg, $action-link-warning-border);
+}
+
+// Danger and error appear as red
+.action-link-danger {
+  @include button-variant($action-link-danger-color, $action-link-danger-bg, $action-link-danger-border);
+}
+
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.action-link-link {
+  font-weight: 400;
+  color: $link-color;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &.active,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: transparent;
+    @include box-shadow(none);
+  }
+  &,
+  &:focus-visible,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  &:focus-visible,
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    background-color: transparent;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: $action-link-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
+// Button Sizes
+// --------------------------------------------------
+
+.action-link-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $action-link-border-radius-large);
+}
+.action-link-sm {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $action-link-border-radius-small);
+}
+.action-link-xs {
+  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $action-link-border-radius-small);
+}
+
+
+// Block button
+// --------------------------------------------------
+
+.action-link-block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.action-link-block + .action-link-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.action-link-block {
+    width: 100%;
+  }
+}

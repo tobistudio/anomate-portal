@@ -1,0 +1,79 @@
+//
+// Panels
+// --------------------------------------------------
+
+
+// Base class
+.panel {
+    margin-bottom: $line-height-computed;
+    border-bottom:1px solid $gray-light;
+
+    &:last-child {
+      border-bottom:0;
+    }
+  
+    .panel-heading {
+      &:after {
+          position:absolute;
+          top:50%;
+          right:0;
+          display:block;
+          width:18px;
+          height:12px;
+          content:"";
+          background-image:url('../assets/controls/arrow-down.svg');
+          @include translate(0,-50%)
+      }
+    }
+    
+    &.panel_active {
+      .panel-heading {
+        &:after {
+            background-image:url('../assets/controls/arrow-up.svg');
+        }
+      }
+    }
+  
+}
+
+// Panel contents
+.panel-body {
+  padding: $panel-body-padding;
+  @include clearfix;
+}
+
+// Optional heading
+.panel-heading {
+    padding:$panel-heading-padding;
+    font-weight: 600;
+    color:$headings-color;
+    cursor: pointer;
+    position:relative;
+}
+
+// Within heading, strip any `h*` tag of its default margins for spacing.
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: inherit;
+}
+
+// Optional footer (stays gray in every modifier class)
+.panel-footer {
+    padding: $panel-footer-padding;
+}
+
+// Collapsible panels (aka, accordion)
+//
+// Wrap a series of panels in `.panel-group` to turn them into an accordion with
+// the help of our collapse JavaScript plugin.
+.panel-group {
+    margin-bottom: $line-height-computed;
+    // Tighten up margin so it's only between panels
+    .panel {
+      margin-bottom: 0;
+      + .panel {
+        margin-top: 5px;
+      }
+    }
+}

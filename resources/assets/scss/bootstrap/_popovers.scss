@@ -1,0 +1,50 @@
+//
+// Popovers
+// --------------------------------------------------
+
+
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: $zindex-popover;
+  display: none;
+  max-width: $popover-max-width;
+  padding: 1px;
+  // Our parent element can be arbitrary since popovers are by default inserted as a sibling of their target element.
+  // So reset our font and text properties to avoid inheriting weird values.
+  @include reset-text;
+  font-size: $font-size-base;
+  background-color: $popover-bg;
+  background-clip: padding-box;
+  border: 1px solid $popover-fallback-border-color;
+  border: 1px solid $popover-border-color;
+  border-radius: $border-radius-small;
+  box-shadow: 2px 2px 8px rgba(206, 194, 214, 0.5);
+}
+
+.popover-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-image: url(../assets/controls/icon-cros.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.popover-title {
+  padding:16px 50px 0 16px;
+  margin: 0; // reset heading margin
+  font-size: $font-size-base;
+  background-color: $popover-title-bg;
+  border-bottom: 1px solid darken($popover-title-bg, 5%);
+  border-radius: ($border-radius-large - 1) ($border-radius-large - 1) 0 0;
+}
+
+.popover-content {
+  padding:6px 16px 16px 16px;
+  min-width:290px;
+}

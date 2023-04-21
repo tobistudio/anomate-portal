@@ -1,0 +1,13 @@
+<div class="media">
+    <div class="media-left">
+        <% if (data.status) { %>
+        <i class="media-object icon mdi mdi-check"></i>
+        <% } else { %>
+        <i class="media-object icon mdi mdi-close"></i>
+        <% } %>
+    </div>
+    <div class="media-body media-middle">
+        <h4 class="media-heading"><%= data.name %></h4>
+        <span><%= data.content %></span>
+    </div>
+</div>

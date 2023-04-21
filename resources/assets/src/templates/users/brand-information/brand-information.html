@@ -1,0 +1,44 @@
+<div class="column-md-12 widget-forms">
+    
+    <div class="block-header clearfix">
+        <div class="pull-left">
+            <h2>Brand assets</h2>
+            <p>
+                Please define your branding assets. The assets will be appended to your campaigns.
+            </p>
+        </div>
+    </div>
+
+    <div class="widget-inner">
+        <div class="widget-header">
+            <h3 class="widget-header-title"><%= title %></h3>
+            <span class="widget-header-label"> <%= description %> </span>
+        </div>
+
+        <div class="widget-body">
+            <form>
+                <div class="row">
+                    <div class="column-md-12" data-fields="brand_name"></div>
+                </div>
+
+                <div class="row">
+                    <div class="column-md-6" data-fields="default_logo"></div>
+                    <div class="column-md-6" data-fields="dark_logo"></div>
+                </div>
+
+                <div class="widget-body-buttons clearfix text-right">
+                    <% if (this.options.cancelButton) { %>
+                    <button type="reset" class="action-link submit action-link-default">
+                        <%= this.options.cancelButton %>
+                    </button>
+                    <% } %> <% if (this.options.submitButton) { %>
+                    <button type="submit" class="action-link submit action-link-primary">
+                        <%= this.options.submitButton %>
+                    </button>
+                    <% } %>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</div>

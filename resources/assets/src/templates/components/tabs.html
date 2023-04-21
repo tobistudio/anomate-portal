@@ -1,0 +1,17 @@
+<!-- prettier-ignore -->
+
+<% if (typeof(tabs)!="undefined") { %>
+<section class="tabs clearfix">
+    <ul class="tabs-navigation" role="tablist">
+        <% _.each(tabs, function (tab,index) { %>
+        <li>
+            <a class="<%= tab.className || '' %>" href="<%= helpers.defineURL(tab.url) %>">
+                <%= tab.name %>
+            </a>
+        </li>
+        <% }); %>
+    </ul>
+</section>
+<% } %>
+
+<div id="tabs-content" class="container margin-top"></div>

@@ -1,0 +1,43 @@
+
+.list {
+    position:relative;
+    margin-bottom:24px;
+    
+    .user-icon-letters {
+        width: 78px;
+        height: 78px;
+        text-align: center;
+        background: #CAF3FF;
+        border: 1px solid #000000;
+        border-radius: 50%;
+        vertical-align: middle;
+        font-size: 30px;
+        line-height: 78px;
+        margin: 26px;
+    }
+    
+    .dropdown {
+        position:absolute;
+        top: 6px;
+        right: 6px;
+        .action-link {
+            padding:4px 10px;
+        }
+        .dropdown-menu {
+            min-width: 160px;
+        }
+    }
+    
+    .payment-methods {
+        .media-object {
+            width: 44px;
+            border: 0.5px solid #E8E8E8;
+            border-radius: 4px;
+            padding: 8px 4px;
+            img {
+                width:100%;
+            }
+        }
+    }
+    
+}

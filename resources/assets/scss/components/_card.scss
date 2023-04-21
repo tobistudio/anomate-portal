@@ -1,0 +1,125 @@
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    margin-bottom: 24px;
+    
+    @media (max-width: $screen-sm-min) {
+        display:block;
+        width:100%;
+    }
+    
+    .card-inner {
+        width:100%;
+        position:relative;
+        background: #FFFFFF;
+        box-shadow: 2px 2px 8px rgba(206, 194, 214, 0.5);
+        border-radius: 8px;
+        padding: 24px 24px 54px;
+        border: 1px solid transparent;
+        @include transition(border 0.4s);
+        &:hover {
+            border: 1px solid #D5D1D8;
+        }
+    }
+
+    .card-icon {
+        width:90px;
+        height:66px;
+        background:#F9F0FF;
+        border-radius:8px;
+        display: block;
+        text-align: center;
+        padding: 12px;
+        margin-bottom:8px;
+        img {
+            height:100%;
+        }
+    }
+    
+    .card-links {
+        position: absolute;
+        bottom: 0px;
+        padding: 15px 0;
+        font-size:12px;
+        font-weight:500;
+    }
+
+    
+    &.card-cmp-page {
+        .card-inner {
+            padding: 16px 16px 46px;
+        }
+        .card-title {
+            margin-bottom:8px;
+        }
+        .card-description {
+            font-size:14px;
+            line-height:24px;
+        }
+    }
+    
+    &.card-effect {
+        
+        .card-inner {
+            padding:24px 24px 24px;
+            height:270px;
+        }
+        
+        .card-title {
+            top: 50%;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            padding: 24px;
+            @include translate(0,-50%);
+            @include transition(all 0.4s);
+        }
+        
+        .card-description {
+            margin-top:64px;
+            opacity: 0;
+            font-size:14px;
+            line-height: 24px;
+            @include transition(all 0.4s);
+        }
+        
+        &:hover {
+            .card-inner {
+                border: 1px solid transparent;
+            }
+            .card-title {
+                top:0;
+                transform: translate(0,0);
+                color:#722ED1;
+            }
+            .card-description {
+                opacity: 1;
+            }
+        }
+        
+    }
+    
+    &.card-more {
+        .card-description {
+            top: 50%;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            padding: 24px 12px 24px 24px;
+            @include translate(0,-50%);
+            @include transition(all 0.4s);
+        }
+        @media (max-width: $screen-sm-min) {
+            .card-links {
+                display:none;
+            }
+        }
+    }
+
+
+}
